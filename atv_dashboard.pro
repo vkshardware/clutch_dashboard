@@ -1,7 +1,9 @@
 QT += quickcontrols2 widgets
 
 SOURCES += \
+        backendgp.cpp \
         dashboard.cpp \
+        iconblock.cpp \
         main.cpp
 
 resources.files = main.qml
@@ -9,8 +11,8 @@ resources.files = main.qml
 resources.prefix = /$${TARGET}
 
 CONFIG += qmltypes
-QML_IMPORT_NAME = io.qt.examples.backendq
-QML_IMPORT_MAJOR_VERSION = 1
+    QML_IMPORT_NAME = org.vks.GPObjectType
+    QML_IMPORT_MAJOR_VERSION = 1
 
 RESOURCES += \
     $$files(qml/*)
@@ -23,4 +25,6 @@ QML_IMPORT_PATH =  /qml/imports/atv_dashboard
 QML_DESIGNER_IMPORT_PATH = /qml
 
 HEADERS += \
-    dashboard.h
+    backendgp.h \
+    dashboard.h \
+    iconblock.h

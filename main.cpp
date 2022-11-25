@@ -9,6 +9,8 @@
 #include <sys/types.h>
 #include <QtQml>
 #include "dashboard.h"
+#include "iconblock.h"
+#include "backendgp.h"
 
 
 int main(int argc, char *argv[])
@@ -24,6 +26,38 @@ int main(int argc, char *argv[])
     QQuickStyle::setStyle("Universal");
 
     QQmlApplicationEngine engine;
+
+    BackendGP front_left_GP, rear_left_GP, front_right_GP, rear_right_GP;
+    qmlRegisterSingletonType<BackendGP>("org.vks.GPObjects", 1, 0, "Front_left_GP",
+                                     [&](QQmlEngine *, QJSEngine *) -> QObject * {
+        return &front_left_GP;
+    });
+
+    qmlRegisterSingletonType<BackendGP>("org.vks.GPObjects", 1, 0, "Rear_left_GP",
+                                     [&](QQmlEngine *, QJSEngine *) -> QObject * {
+        return &rear_left_GP;
+    });
+
+    qmlRegisterSingletonType<BackendGP>("org.vks.GPObjects", 1, 0, "Front_right_GP",
+                                     [&](QQmlEngine *, QJSEngine *) -> QObject * {
+        return &front_right_GP;
+    });
+
+    qmlRegisterSingletonType<BackendGP>("org.vks.GPObjects", 1, 0, "Rear_right_GP",
+                                     [&](QQmlEngine *, QJSEngine *) -> QObject * {
+        return &rear_right_GP;
+    });
+
+    front_left_GP.motor_setState(1);
+
+    IconBlock iconblock;
+
+    qmlRegisterSingletonType<IconBlock>("org.vks.GPObjects", 1, 0, "IconBlock",
+                                     [&](QQmlEngine *, QJSEngine *) -> QObject * {
+        return &iconblock;
+    });
+
+    iconblock.gp_link_setstate(true);
 
 
 

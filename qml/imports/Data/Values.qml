@@ -51,25 +51,30 @@
 pragma Singleton
 import QtQuick 2.10
 
+import org.vks.GPObjects 1.0
+import org.vks.GPObjectType 1.0
+
 QtObject {
     id: values
     /* Iso Icons Boolean Values */
-    property bool gplink: false
-    property bool water
-    property bool holdon
-    property bool rearGP_squeeze
-    property bool frontGP_squeeze
-    property bool faultF1
-    property bool faultF2
-    property int rear_left_GP_channel
-    property int rear_right_GP_channel
-    property int front_left_GP_channel
-    property int front_right_GP_channel
+    property bool gplink: IconBlock.gp_link
+    property bool water: IconBlock.water
+    property bool holdon: IconBlock.holdon
+    property bool rearGP_squeeze: IconBlock.rearGP_squeeze
+    property bool frontGP_squeeze: IconBlock.frontGP_squeeze
+    property bool faultF1: IconBlock.faultF1
+    property bool faultF2: IconBlock.faultF2
 
-    property int rear_left_GP_state
-    property int rear_right_GP_state
-    property int front_left_GP_state
-    property int front_right_GP_state
+
+    property int rear_left_Motor_state: Rear_left_GP.motor_state
+    property int rear_right_Motor_state: Rear_right_GP.motor_state
+    property int front_left_Motor_state: Front_left_GP.motor_state
+    property int front_right_Motor_state: Front_right_GP.motor_state
+
+    property int rear_left_GP_state: Rear_left_GP.gp_state
+    property int rear_right_GP_state: Rear_right_GP.gp_state
+    property int front_left_GP_state: Front_left_GP.gp_state
+    property int front_right_GP_state: Front_right_GP.gp_state
 
     /* State change bool */
     property bool booting: true

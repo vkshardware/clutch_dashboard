@@ -19,28 +19,28 @@ Item {
         id: gpfront_left_channel_on_Icon
         x: 155
         y: 3
-        motor_state: Data.Values.front_left_GP_channel
+        motor_state: Data.Values.front_left_Motor_state
     }
 
     Motor {
         id: gpfront_right_channel_on_Icon
         x: 289
         y: 3
-        motor_state: Data.Values.front_right_GP_channel
+        motor_state: Data.Values.front_right_Motor_state
     }
 
     Motor {
         id: gprear_left_channel_on_Icon
         x: 156
         y: 525
-        motor_state: Data.Values.rear_left_GP_channel
+        motor_state: Data.Values.rear_left_Motor_state
     }
 
     Motor {
         id: gprear_right_channel_on_Icon
         x: 292
         y: 526
-        motor_state: Data.Values.rear_right_GP_channel
+        motor_state: Data.Values.rear_right_Motor_state
     }
 
     Friction {
