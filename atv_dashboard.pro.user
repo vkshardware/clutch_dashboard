@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 7.0.2, 2022-11-26T01:31:53. -->
+<!-- Written by QtCreator 7.0.2, 2022-12-16T10:03:38. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -235,7 +235,6 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">atv_dashboard2</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/media/sf_D_DRIVE/clutch_dashboard/atv_dashboard.pro</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/media/sf_D_DRIVE/clutch_dashboard/atv_dashboard.pro</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>

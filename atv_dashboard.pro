@@ -1,7 +1,9 @@
-QT += quickcontrols2 widgets
+QT += quickcontrols2 serialbus widgets
 
 SOURCES += \
         backendgp.cpp \
+        canbusprocess.cpp \
+        controllerdata.cpp \
         dashboard.cpp \
         iconblock.cpp \
         main.cpp
@@ -26,5 +28,7 @@ QML_DESIGNER_IMPORT_PATH = /qml
 
 HEADERS += \
     backendgp.h \
+    canbusprocess.h \
+    controllerdata.h \
     dashboard.h \
     iconblock.h
