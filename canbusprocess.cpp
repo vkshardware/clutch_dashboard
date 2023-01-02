@@ -233,7 +233,7 @@ void CanbusProcess::processReceivedFrames()
         }
 
 
-        qDebug() << QString(time +flags+id+dlc+data);
+        //qDebug() << QString(time +flags+id+"  "+dlc+"  "+data);
 
 
     }

@@ -37,6 +37,7 @@ bool ControllerData::LoadDisplayMessage(QString src)
     }
 
 
+
     return ok;
 }
 

@@ -8,8 +8,7 @@ import QtQuick3D
 import atv_dashboard
 import Quick3DAssets.Sherp2 1.0
 import Data 1.0 as Data
-
-
+import "functions.js" as FR
 
 Item {
 
@@ -338,7 +337,7 @@ Item {
                    enabled: true
                }
            }
-       ]
+        ]
 
 
 
@@ -352,8 +351,4 @@ Item {
 
 
 
-/*##^##
-Designer {
-    D{i:0;autoSize:true;height:480;width:640}D{i:10}D{i:11}D{i:16}
-}
-##^##*/
+

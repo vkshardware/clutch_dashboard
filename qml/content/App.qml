@@ -30,7 +30,7 @@
 import QtQuick
 import QtQuick.Window
 import atv_dashboard
-
+import Data 1.0 as Data
 
 Window {
     id: root
@@ -43,11 +43,6 @@ Window {
     visibility: "FullScreen"
 
 
-
-    Mainform {
-    }
-
-
     Item {
         id: backend
         property real x_angle: 0.0
@@ -56,6 +51,8 @@ Window {
         property real to_x_angle: 0.0
         property real to_y_angle: 0.0
         property real to_z_angle: 0.0
+        property bool running: false
+        property int  duration: 700
 
 
         property SequentialAnimation model_x_turning:
@@ -65,6 +62,7 @@ Window {
 
 
             PropertyAnimation {
+
                 target: backend;
                 property: "x_angle";
 
@@ -77,23 +75,24 @@ Window {
         property SequentialAnimation model_y_turning:
 
         SequentialAnimation {
-            loops: -1
-            running: false
+            loops: 1
+            running: backend.running || Data.Values.atv_running
 
 
             PropertyAnimation {
-                target: backend;
-                property: "y_angle";
+                target: backend
+                property: "y_angle"
 
-                to: backend.to_y_angle
-                duration: 2000
+                to: backend.to_y_angle+Data.Values.atv_angle
+                duration: backend.duration
+
             }
 
         }
 
+    }
 
-
-
+    Mainform {
     }
 
 

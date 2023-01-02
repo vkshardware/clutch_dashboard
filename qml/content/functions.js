@@ -1,12 +1,14 @@
 function rotateLeft() {
     backend.to_y_angle = 180
-    backend.model_y_turning.running = true
+    backend.duration = 2000
+    backend.running = true
 }
 
 
 function rotateRight() {
     backend.to_y_angle = -180
-    backend.model_y_turning.running = true
+    backend.duration = 2000
+    backend.running = true
 }
 
 function rotateUp() {

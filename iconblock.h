@@ -48,7 +48,7 @@ public:
     void faultF1_setstate(bool newstate);
     bool _faultF1 = false;
 
-    //water
+    //faultF2
     Q_INVOKABLE bool faultF2_getstate() { return _faultF2; }
     void faultF2_setstate(bool newstate);
     bool _faultF2 = false;

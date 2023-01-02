@@ -53,7 +53,6 @@ import QtQuick 2.10
 
 import org.vks.GPObjects 1.0
 import org.vks.GPObjectType 1.0
-import atv_dashboard
 
 QtObject {
     id: values
@@ -76,9 +75,8 @@ QtObject {
     property int rear_right_GP_state: Rear_right_GP.gp_state
     property int front_left_GP_state: Front_left_GP.gp_state
     property int front_right_GP_state: Front_right_GP.gp_state
-
-    property int atv_angle: AnimationATV.angle
-    property bool atv_running: AnimationATV.run
+    
+    propety int atv_angle: atv.angle
 
     /* State change bool */
     property bool booting: true

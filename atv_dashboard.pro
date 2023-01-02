@@ -1,6 +1,7 @@
 QT += quickcontrols2 serialbus widgets
 
 SOURCES += \
+        animation.cpp \
         backendgp.cpp \
         canbusprocess.cpp \
         controllerdata.cpp \
@@ -27,6 +28,7 @@ QML_IMPORT_PATH =  /qml/imports/atv_dashboard
 QML_DESIGNER_IMPORT_PATH = /qml
 
 HEADERS += \
+    animation.h \
     backendgp.h \
     canbusprocess.h \
     controllerdata.h \

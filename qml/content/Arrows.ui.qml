@@ -9,6 +9,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import atv_dashboard
 import "functions.js" as FR
+import Data 1.0 as Data
 
 Item {
 
@@ -79,7 +80,9 @@ Item {
     Connections {
         target: arrow_left
         function onReleased() {
-            backend.model_y_turning.running = false
+            backend.running = false
+            backend.duration = 700
+            backend.to_y_angle = 0
         }
     }
 
@@ -93,7 +96,9 @@ Item {
     Connections {
         target: arrow_right
         function onReleased() {
-            backend.model_y_turning.running = false
+            backend.running = false
+            backend.duration = 700
+            backend.to_y_angle = 0
         }
     }
 
@@ -124,7 +129,5 @@ Item {
             backend.model_x_turning.running = false
         }
     }
-
-
 
 }
