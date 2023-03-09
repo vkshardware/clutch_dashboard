@@ -34,8 +34,8 @@ import Data 1.0 as Data
 
 Window {
     id: root
-    width: 1920
-    height: 1080
+    width: 1280
+    height: 720
 
     visible: true
     title: "Vector ATV Clutch Dashboard"

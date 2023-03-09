@@ -34,6 +34,8 @@ CanbusProcess::CanbusProcess(QWidget *parent) :
         pcb2.controller_id = PCB2_ID;
     }
 
+    AnimationEnable = settings.value("ANIMATION_ENABLE").toBool();
+
     deviceInterfaceName = settings.value("INTERFACE_NAME").toString();
     if (deviceInterfaceName == "") deviceInterfaceName = "vcan0";
 

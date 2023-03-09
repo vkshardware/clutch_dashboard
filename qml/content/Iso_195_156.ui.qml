@@ -57,23 +57,23 @@ import Data 1.0 as Data
 
 Item {
     id: iso_195_156
-    width: 950
+    width: 700
     height: 68
 
     Image {
         id: iso_195_156Asset
-        x: 8
-        y: -13
-        width: 950
-        height: 90
+        x: 0
+        y: 0
+        width: 700
+        height: 68
         source: "assets/iso_195_156.png"
     }
 
     RowLayout {
-        x: 17
-        y: 0
-        scale: 0.9
-        spacing: 40
+        x: -60
+        y: 4
+        scale: 0.8
+        spacing: 20
 
         IsoIcon {
             id: gpConnectionIcon

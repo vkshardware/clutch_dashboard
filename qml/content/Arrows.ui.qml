@@ -13,15 +13,14 @@ import Data 1.0 as Data
 
 Item {
 
-    width: 540
-    height: 90
+    width: 360
+    height: 60
 
     Image {
         source: "icons/arrow_left.png"
         x: 0
         y: 0
-        height: 90
-        width: 90
+
 
         MouseArea {
             id: arrow_left
@@ -32,10 +31,8 @@ Item {
 
     Image {
         source: "icons/arrow_right.png"
-        x: 150
+        x: 100
         y: 0
-        height: 90
-        width: 90
 
         MouseArea {
             id: arrow_right
@@ -45,10 +42,8 @@ Item {
 
     Image {
         source: "icons/arrow_up.png"
-        x: 300
+        x: 200
         y: 0
-        height: 90
-        width: 90
 
         MouseArea {
             id: arrow_up
@@ -58,10 +53,8 @@ Item {
 
     Image {
         source: "icons/arrow_down.png"
-        x: 450
+        x: 300
         y: 0
-        height: 90
-        width: 90
 
         MouseArea {
             id: arrow_down

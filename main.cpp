@@ -15,6 +15,11 @@ BackendGP * front_right_GP;
 BackendGP * rear_right_GP;
 AnimationATV * atv;
 
+/*
+ * Data parser. Fill QML classes with CAN bus data:
+ * Waked up every 200ms on timer interrupt
+*/
+
 void update_data()
 {
     static bool turn_left_up = false;
@@ -37,7 +42,7 @@ void update_data()
                                can0->pcb2.display[14].actual_value || can0->pcb2.display[15].actual_value);
 
     iconblock->faultF2_setstate(can0->pcb1.display[16].actual_value || can0->pcb1.display[17].actual_value ||
-                                can0->pcb2.display[17].actual_value || can0->pcb2.display[17].actual_value);
+                                can0->pcb2.display[16].actual_value || can0->pcb2.display[17].actual_value);
 
     //Set motor states
     if (can0->pcb1.display[10].actual_value) rear_left_GP->motor_setState(1);
@@ -92,80 +97,83 @@ void update_data()
     if (can0->pcb2.display[4].actual_value) front_right_GP->gp_setState(1);
     if (can0->pcb2.display[5].actual_value) front_right_GP->gp_setState(2);
     if (!(can0->pcb2.display[4].actual_value || can0->pcb2.display[5].actual_value)) front_right_GP->gp_setState(0);
-    if (can0->pcb2.display[15].actual_value || can0->pcb2.display[16].actual_value) front_right_GP->gp_setState(3);
+    if (can0->pcb2.display[15].actual_value || can0->pcb2.display[17].actual_value) front_right_GP->gp_setState(3);
 
     // Set ATV animation
+    //Animation logic defined here
 
-
-
-    //Left turning
-
-    if ((!sq_r && lu_r && !ru_r) ||
-        (!sq_f && lu_f && !ru_f))
+   if (can0->AnimationEnable)
     {
-        atv->angle_set(30);
-        turn_left_up = true;
 
-        if (turn_left_down) {
-            atv->run_setstate(false);
-            turn_left_down = false;
-        }
-        else
-            atv->run_setstate(true);
-     }
+      //Left turning
 
-    if ((!sq_r && ld_r && !rd_r) ||
-        (!sq_f && ld_f && !rd_f)) {
-        atv->angle_set(0);
-        turn_left_down = true;
-        if (turn_left_up) {
-            atv->run_setstate(false);
-            turn_left_up = false;
-        }
-        else
-            atv->run_setstate(true);
-     }
+        if ((!sq_r && lu_r && !ru_r) ||
+           (!sq_f && lu_f && !ru_f))
+        {
+             atv->angle_set(30);
+             turn_left_up = true;
+
+             if (turn_left_down) {
+                 atv->run_setstate(false);
+                 turn_left_down = false;
+             }
+             else
+                  atv->run_setstate(true);
+         }
+
+        if ((!sq_r && ld_r && !rd_r) ||
+            (!sq_f && ld_f && !rd_f))
+        {
+             atv->angle_set(0);
+             turn_left_down = true;
+             if (turn_left_up)
+             {
+                 atv->run_setstate(false);
+                 turn_left_up = false;
+             }
+             else
+                atv->run_setstate(true);
+         }
 
      //Right turning
 
-     if ((!sq_r && ru_r && !lu_r) ||
-         (!sq_f && ru_f && !lu_f))
-     {
-         atv->angle_set(-30);
-         turn_right_up = true;
+         if ((!sq_r && ru_r && !lu_r) ||
+             (!sq_f && ru_f && !lu_f))
+         {
+              atv->angle_set(-30);
+              turn_right_up = true;
 
-         if (turn_right_down) {
-             atv->run_setstate(false);
-             turn_right_down = false;
-         }
-         else
-             atv->run_setstate(true);
-      }
+              if (turn_right_down) {
+                  atv->run_setstate(false);
+                  turn_right_down = false;
+               }
+                 else
+                 atv->run_setstate(true);
+          }
 
-     if ((!sq_r && rd_r && !ld_r) ||
-         (!sq_f && rd_f && !ld_f))
-     {
-         atv->angle_set(0);
-         turn_right_down = true;
-         if (turn_right_up) {
-             atv->run_setstate(false);
-             turn_right_up = false;
-         }
-         else
-             atv->run_setstate(true);
-      }
+         if ((!sq_r && rd_r && !ld_r) ||
+             (!sq_f && rd_f && !ld_f))
+         {
+             atv->angle_set(0);
+             turn_right_down = true;
+             if (turn_right_up) {
+                atv->run_setstate(false);
+                turn_right_up = false;
+            }
+                 else
+                 atv->run_setstate(true);
+        }
 
-     if ((!sq_r && !lu_r && !ld_r && !ru_r && !rd_r) &&
-         (!sq_f && !lu_f && !ld_f && !ru_f && !rd_f))
-     {
-        atv->run_setstate(false);
-        turn_left_up = false;
-        turn_left_down = false;
-        turn_right_up = false;
-        turn_right_down = false;
+         if ((!sq_r && !lu_r && !ld_r && !ru_r && !rd_r) &&
+             (!sq_f && !lu_f && !ld_f && !ru_f && !rd_f))
+          {
+              atv->run_setstate(false);
+              turn_left_up = false;
+              turn_left_down = false;
+              turn_right_up = false;
+              turn_right_down = false;
+          }
      }
-
-
 }
 
 
@@ -173,7 +181,11 @@ int main(int argc, char *argv[])
 {
     QTimer *updateTimer = nullptr;
 
+    qputenv("QSG_INFO", QByteArray("1"));
+    qputenv("QSG_RHI_BACKEND", QByteArray("vulkan"));
+
     qputenv("QT_IM_MODULE", QByteArray("qtvirtualkeyboard"));
+
 
 
     QGuiApplication app(argc, argv);

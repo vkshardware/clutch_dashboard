@@ -52,8 +52,9 @@ import QtQuick 2.8
 
 Rectangle {
     id: backgrounds_195_610
-    width: 1921
-    height: 1081
+    width: 1270
+
+    height: 710
     color: "black"
     border.color: "#ffffff"
 
@@ -66,8 +67,14 @@ Rectangle {
 
     Image {
         id: builtwithlogo_195_934
-        x: 1763
-        y: 37
+        x: 1142
+        y: 20
         source: "assets/builtwithlogo_195_934.png"
     }
 }
+
+/*##^##
+Designer {
+    D{i:0;formeditorZoom:0.75}
+}
+##^##*/

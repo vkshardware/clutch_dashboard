@@ -13,8 +13,8 @@ import "functions.js" as FR
 Item {
 
    id: mainform
-    width: 1920
-    height: 1080
+    width: 1280
+    height: 720
 
 
     Image {
@@ -32,8 +32,8 @@ Item {
 
     Item {
         id: isoIconsEffect
-        x: 107
-        y: 771
+        x: -73
+        y: 551
         width: 1033
         height: 142
         layer.enabled: true
@@ -44,18 +44,18 @@ Item {
 
         Iso_195_156 {
             id: isoIcons
-            x: 40
-            y: 66
+            x: 131
+            y: 19
         }
     }
 
     View3D {
         id: view3D
         anchors.fill: parent
-        anchors.rightMargin: -850
-        anchors.bottomMargin: 30
-        anchors.leftMargin: 53
-        anchors.topMargin: -30
+        anchors.rightMargin: -719
+        anchors.bottomMargin: 27
+        anchors.leftMargin: -15
+        anchors.topMargin: -27
 
         environment: sceneEnvironment
 
@@ -91,8 +91,8 @@ Item {
 
         Arrows {
             id: arrows
-            x: 1154
-            y: 838
+            x: 842
+            y: 560
 
         }
 
@@ -104,22 +104,24 @@ Item {
            id: flipable
            x: 14
            y: 9
-           width: 1200
-           height: 730
+           width: 800
+           height: 487
            opacity: 0.31
            flipAngle: 180
 
            Gp {
                id: image1
-               x: 259
-               y: 105
+               x: 175
+               y: 10
+               width: 404
+               height: 449
            }
 
 
            Image {
                id: image
-               x: 387
-               y: 265
+               x: 157
+               y: 177
                source: "carLogo.png"
            }
        }
@@ -237,7 +239,7 @@ Item {
 
                Keyframe {
                    value: 0
-                   frame: 2977
+                   frame: 800
                }
 
                Keyframe {
@@ -345,6 +347,8 @@ Item {
            id: __materialLibrary__
        }
 }
+
+
 
 
 

@@ -40,6 +40,7 @@ public:
     ControllerData pcb1, pcb2;
     void initActionsConnections();
     bool link_established = false;
+    bool AnimationEnable = true;
 
 
 private slots:
@@ -62,7 +63,8 @@ private:
     QTimer *m_appendTimer = nullptr;
     QTimer *is_connected = nullptr;
 
-    QString deviceInterfaceName = "vcan0";
+    QString deviceInterfaceName = "can0";
+
     QString pluginName = "socketcan";
     void ConnectionCheck();
 

@@ -131,7 +131,7 @@ Item {
 
             PropertyChanges {
                 target: frictiondown
-                visible: fault
+                visible: false
             }
 
             PropertyChanges {
